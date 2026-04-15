@@ -27,7 +27,7 @@ function Admin() {
       setLoading(true);
       setErrorMessage("");
 
-      const response = await fetch("http://localhost:3000/orders");
+      const response = await fetch("http://localhost:3001/orders");
 
       if (!response.ok) {
         throw new Error("Failed to fetch orders.");
@@ -52,7 +52,7 @@ function Admin() {
     if (!confirmed) return;
 
     try {
-      const response = await fetch(`http://localhost:3000/orders/${orderId}`, {
+      const response = await fetch(`http://localhost:3001/orders/${orderId}`, {
         method: "DELETE",
       });
 
@@ -73,7 +73,7 @@ function Admin() {
   // Update only the status field of the selected order using PATCH.
   async function handleStatusChange(orderId, newStatus) {
     try {
-      const response = await fetch(`http://localhost:3000/orders/${orderId}`, {
+      const response = await fetch(`http://localhost:3001/orders/${orderId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -262,7 +262,7 @@ function Admin() {
             filteredOrders.map((order) => (
               <div key={order.id} className="order-card">
                 <div className="order-header">
-                  <strong>Order #{order.id}</strong>
+                  <strong>Order #{order.orderNumber || order.id}</strong>
                   <span>{formatDate(order.createdAt)}</span>
                 </div>
 

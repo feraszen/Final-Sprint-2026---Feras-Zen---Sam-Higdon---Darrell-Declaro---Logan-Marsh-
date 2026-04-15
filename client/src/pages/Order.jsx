@@ -74,7 +74,7 @@ function Order() {
       // Check current stock for every product before creating the order.
       for (const [productId, requiredQty] of Object.entries(requiredQuantities)) {
         const productResponse = await fetch(
-          `http://localhost:3000/products/${productId}`
+          `http://localhost:3001/products/${productId}`
         );
 
         if (!productResponse.ok) {
@@ -95,7 +95,7 @@ function Order() {
       // Update stock quantity for each purchased product.
       for (const [productId, requiredQty] of Object.entries(requiredQuantities)) {
         const productResponse = await fetch(
-          `http://localhost:3000/products/${productId}`
+          `http://localhost:3001/products/${productId}`
         );
 
         if (!productResponse.ok) {
@@ -107,7 +107,7 @@ function Order() {
         const updatedStock = currentStock - requiredQty;
 
         const updateResponse = await fetch(
-          `http://localhost:3000/products/${productId}`,
+          `http://localhost:3001/products/${productId}`,
           {
             method: "PATCH",
             headers: {
@@ -124,8 +124,23 @@ function Order() {
         }
       }
 
+      // Load existing orders so the next custom order number can start at KT0001000.
+      const existingOrdersResponse = await fetch("http://localhost:3001/orders");
+
+      if (!existingOrdersResponse.ok) {
+        throw new Error("Failed to load existing orders.");
+      }
+
+      const existingOrders = await existingOrdersResponse.json();
+      const nextOrderNumber = existingOrders.length + 1000;
+      const formattedOrderNumber = `KT${String(nextOrderNumber).padStart(
+        7,
+        "0"
+      )}`;
+
       // Build the order object in the format expected by the backend.
       const newOrder = {
+        orderNumber: formattedOrderNumber,
         customer: formData,
         items: cartItems,
         totalItems,
@@ -136,7 +151,7 @@ function Order() {
         createdAt: new Date().toISOString(),
       };
 
-      const response = await fetch("http://localhost:3000/orders", {
+      const response = await fetch("http://localhost:3001/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -148,9 +163,11 @@ function Order() {
         throw new Error("Failed to save order.");
       }
 
+      const savedOrderFromServer = await response.json();
+
       // Save the completed order locally for invoice display,
       // then clear the cart and switch to the success view.
-      setSavedOrder(newOrder);
+      setSavedOrder(savedOrderFromServer);
       clearCart();
       setOrderCompleted(true);
     } catch (error) {
@@ -171,13 +188,11 @@ function Order() {
       </section>
 
       <main className="container order-page">
-        {/* Show the checkout layout before order completion. */}
         {!orderCompleted ? (
           <div className="order-layout">
             <section className="cart-section">
               <h2>Cart Items</h2>
 
-              {/* Display a fallback message if the cart is empty. */}
               {cartItems.length === 0 ? (
                 <p>Your cart is empty.</p>
               ) : (
@@ -192,7 +207,6 @@ function Order() {
                     </button>
                   </div>
 
-                  {/* Render every item currently stored in the cart. */}
                   {cartItems.map((item, index) => (
                     <div
                       key={`${item.id}-${index}-${JSON.stringify(
@@ -224,7 +238,6 @@ function Order() {
                           </div>
                         </div>
 
-                        {/* Show extras only if the item includes selected extras. */}
                         {item.extras && item.extras.length > 0 && (
                           <div className="extras-display">
                             <strong>Extras:</strong>
@@ -243,7 +256,6 @@ function Order() {
                           </div>
                         )}
 
-                        {/* Calculate the subtotal for this specific cart item. */}
                         <p className="cart-subtotal">
                           Subtotal: $
                           {(
@@ -275,7 +287,6 @@ function Order() {
               )}
             </section>
 
-            {/* Show the running order summary, including tax and total. */}
             <aside className="summary-section">
               <h2>Order Summary</h2>
 
@@ -308,7 +319,6 @@ function Order() {
               </div>
             </aside>
 
-            {/* Customer information form used during checkout. */}
             <section className="customer-section">
               <h2>Customer Information</h2>
 
@@ -367,7 +377,6 @@ function Order() {
             </section>
           </div>
         ) : (
-          // Show a confirmation message and a simple invoice after successful checkout.
           <div className="success-message">
             <div className="success-box">
               <h2>🎉 Order Completed Successfully!</h2>
@@ -378,6 +387,9 @@ function Order() {
               <h2>Invoice</h2>
 
               <div id="invoice-content">
+                <p>
+                  <strong>Order Number:</strong> {savedOrder?.orderNumber}
+                </p>
                 <p>
                   <strong>Name:</strong> {savedOrder?.customer?.name}
                 </p>
@@ -394,7 +406,6 @@ function Order() {
 
                 <hr />
 
-                {/* Render all purchased items in the invoice view. */}
                 {savedOrder?.items?.map((item, index) => (
                   <div key={`${item.id}-${index}`}>
                     <p>
@@ -434,10 +445,7 @@ function Order() {
                 </p>
               </div>
 
-              <button
-                className="checkout-btn"
-                onClick={() => navigate("/")}
-              >
+              <button className="checkout-btn" onClick={() => navigate("/")}>
                 Back to Home
               </button>
             </div>
@@ -449,4 +457,3 @@ function Order() {
 }
 
 export default Order;
-

@@ -14,7 +14,7 @@ function Menu() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await fetch("http://localhost:3000/products");
+        const response = await fetch("http://localhost:3001/products");
 
         if (!response.ok) {
           throw new Error("Failed to fetch menu products.");
@@ -43,13 +43,11 @@ function Menu() {
   ];
 
   // Render one menu section for a given category.
-  // Only products that belong to the current category will be displayed.
   function renderSection(categoryName) {
     const items = products.filter(
       (product) => product.category === categoryName
     );
 
-    // Do not render empty categories.
     if (items.length === 0) return null;
 
     return (
@@ -76,18 +74,14 @@ function Menu() {
       </section>
 
       <main className="container menu-page">
-        {/* Display a loading message while menu items are being fetched. */}
         {loading && <p>Loading menu...</p>}
 
-        {/* Display an error message if the product request fails. */}
         {!loading && errorMessage && <p>{errorMessage}</p>}
 
-        {/* Display a fallback message if no products are returned from the API. */}
         {!loading && !errorMessage && products.length === 0 && (
           <p>No products found.</p>
         )}
 
-        {/* Render all menu categories and their products once data is available. */}
         {!loading && !errorMessage && products.length > 0 && (
           <>{categories.map((category) => renderSection(category))}</>
         )}
@@ -101,4 +95,3 @@ function Menu() {
 }
 
 export default Menu;
-
