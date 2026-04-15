@@ -1,0 +1,491 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Orange Fresh",
+      "price": 4,
+      "image": "/images/orange-juice.jpg",
+      "category": "Fresh Juices",
+      "featured": true,
+      "description": "A refreshing orange juice made from ripe oranges, served chilled for a naturally sweet and energizing taste.",
+      "stockQuantity": 18
+    },
+    {
+      "id": "2",
+      "name": "Mango Delight",
+      "price": 6,
+      "image": "/images/mango-juice.jpg",
+      "category": "Fresh Juices",
+      "featured": true,
+      "description": "A tropical mango juice prepared with fresh mangoes, blended for a rich texture and bright fruity flavor.",
+      "stockQuantity": 15
+    },
+    {
+      "id": "3",
+      "name": "Strawberry Juice",
+      "price": 5,
+      "image": "/images/strawberry-juice.jpg",
+      "category": "Fresh Juices",
+      "featured": false,
+      "description": "A smooth strawberry juice made with sweet strawberries, offering a fresh berry taste in every sip.",
+      "stockQuantity": 14
+    },
+    {
+      "id": "4",
+      "name": "Watermelon Juice",
+      "price": 5,
+      "image": "/images/watermelon-juice.jpg",
+      "category": "Fresh Juices",
+      "featured": false,
+      "description": "A cool watermelon juice that is light, hydrating, and perfect for a refreshing summer-style drink.",
+      "stockQuantity": 12
+    },
+    {
+      "id": "5",
+      "name": "Kiwi Smoothie",
+      "price": 6,
+      "image": "/images/kiwi-smoothie.jpg",
+      "category": "Smoothies",
+      "featured": false,
+      "description": "A creamy kiwi smoothie blended with fresh fruit for a tangy flavor and smooth finish.",
+      "stockQuantity": 10
+    },
+    {
+      "id": "6",
+      "name": "Tropical Smoothie",
+      "price": 6,
+      "image": "/images/tropical-smoothie.jpg",
+      "category": "Smoothies",
+      "featured": true,
+      "description": "A tropical smoothie bursting with fruity flavor, made to deliver a refreshing and exotic taste.",
+      "stockQuantity": 13
+    },
+    {
+      "id": "7",
+      "name": "Banana Smoothie",
+      "price": 5,
+      "image": "/images/banana-smoothie.jpg",
+      "category": "Smoothies",
+      "featured": false,
+      "description": "A creamy banana smoothie with a naturally sweet flavor and a thick, satisfying texture.",
+      "stockQuantity": 16
+    },
+    {
+      "id": "8",
+      "name": "Chocolate Milkshake",
+      "price": 7,
+      "image": "/images/chocolate-milkshake.jpg",
+      "category": "Milkshakes",
+      "featured": true,
+      "description": "A rich chocolate milkshake made with creamy ice cream and deep chocolate flavor.",
+      "stockQuantity": 11
+    },
+    {
+      "id": "9",
+      "name": "Strawberry Milkshake",
+      "price": 7,
+      "image": "/images/strawberry-milkshake.jpg",
+      "category": "Milkshakes",
+      "featured": false,
+      "description": "A classic strawberry milkshake with a creamy texture and sweet berry taste.",
+      "stockQuantity": 9
+    },
+    {
+      "id": "10",
+      "name": "Vanilla Milkshake",
+      "price": 7,
+      "image": "/images/vanilla-milkshake.jpg",
+      "category": "Milkshakes",
+      "featured": false,
+      "description": "A smooth vanilla milkshake with a creamy finish and a classic sweet flavor.",
+      "stockQuantity": 10
+    },
+    {
+      "id": "11",
+      "name": "Fruit Salad",
+      "price": 6,
+      "image": "/images/fruit-salad.jpg",
+      "category": "Fruit Salads",
+      "featured": false,
+      "description": "A colorful fruit salad prepared with fresh seasonal fruits for a naturally sweet and healthy choice.",
+      "stockQuantity": 8
+    },
+    {
+      "id": "12",
+      "name": "Berry Bowl",
+      "price": 6,
+      "image": "/images/berry-bowl.jpg",
+      "category": "Fruit Salads",
+      "featured": true,
+      "description": "A fresh berry bowl filled with mixed berries for a bright, juicy, and refreshing snack.",
+      "stockQuantity": 7
+    },
+    {
+      "id": "13",
+      "name": "Tropical Bowl",
+      "price": 6,
+      "image": "/images/tropical-bowl.jpg",
+      "category": "Fruit Salads",
+      "featured": false,
+      "description": "A tropical fruit bowl with fresh fruit pieces and vibrant flavors inspired by island-style freshness.",
+      "stockQuantity": 9
+    },
+    {
+      "id": "14",
+      "name": "Family Fruit Bowl",
+      "price": 7,
+      "image": "/images/family-fruit.jpg",
+      "category": "Fruit Salads",
+      "featured": false,
+      "description": "A larger fruit bowl designed for sharing, prepared with a mix of fresh fruits for the whole family.",
+      "stockQuantity": 6
+    },
+    {
+      "id": "15",
+      "name": "Vanilla Ice Cream",
+      "price": 4,
+      "image": "/images/vanilla-icecream.jpg",
+      "category": "Ice Cream",
+      "featured": false,
+      "description": "A creamy vanilla ice cream with a smooth texture and classic sweet flavor.",
+      "stockQuantity": 20
+    },
+    {
+      "id": "16",
+      "name": "Chocolate Ice Cream",
+      "price": 4,
+      "image": "/images/chocolate-icecream.jpg",
+      "category": "Ice Cream",
+      "featured": true,
+      "description": "A chocolate ice cream scoop with rich cocoa flavor and a creamy finish.",
+      "stockQuantity": 18
+    },
+    {
+      "id": "17",
+      "name": "Pistachio Ice Cream",
+      "price": 4,
+      "image": "/images/pistachio-icecream.jpg",
+      "category": "Ice Cream",
+      "featured": false,
+      "description": "A pistachio ice cream made with a nutty flavor and smooth texture for a premium dessert taste.",
+      "stockQuantity": 14
+    }
+  ],
+  "orders": [
+    {
+      "customer": {
+        "name": "Feras Zen",
+        "phone": "7092193153",
+        "address": "12 Drake Crescent",
+        "instructions": "Don't open the front door "
+      },
+      "items": [
+        {
+          "id": 2,
+          "name": "Mango Delight",
+          "image": "/images/mango-juice.jpg",
+          "category": "Fresh Juices",
+          "basePrice": 6,
+          "price": 6,
+          "extras": [],
+          "quantity": 1
+        },
+        {
+          "id": 3,
+          "name": "Strawberry Juice",
+          "image": "/images/strawberry-juice.jpg",
+          "category": "Fresh Juices",
+          "basePrice": 5,
+          "price": 6,
+          "extras": [
+            {
+              "name": "Chocolate",
+              "price": 1,
+              "icon": "🍫"
+            }
+          ],
+          "quantity": 1
+        },
+        {
+          "id": 5,
+          "name": "Kiwi Smoothie",
+          "image": "/images/kiwi-smoothie.jpg",
+          "category": "Smoothies",
+          "basePrice": 6,
+          "price": 7,
+          "extras": [
+            {
+              "name": "Honey",
+              "price": 1,
+              "icon": "🍯"
+            }
+          ],
+          "quantity": 1
+        },
+        {
+          "id": 7,
+          "name": "Banana Smoothie",
+          "image": "/images/banana-smoothie.jpg",
+          "category": "Smoothies",
+          "basePrice": 5,
+          "price": 6,
+          "extras": [
+            {
+              "name": "Chocolate",
+              "price": 1,
+              "icon": "🍫"
+            }
+          ],
+          "quantity": 1
+        },
+        {
+          "id": 9,
+          "name": "Strawberry Milkshake",
+          "image": "/images/strawberry-milkshake.jpg",
+          "category": "Milkshakes",
+          "basePrice": 7,
+          "price": 8,
+          "extras": [
+            {
+              "name": "Chocolate",
+              "price": 1,
+              "icon": "🍫"
+            }
+          ],
+          "quantity": 1
+        },
+        {
+          "id": 11,
+          "name": "Fruit Salad",
+          "image": "/images/fruit-salad.jpg",
+          "category": "Fruit Salads",
+          "basePrice": 6,
+          "price": 9.5,
+          "extras": [
+            {
+              "name": "Cream",
+              "price": 1,
+              "icon": "🥛"
+            },
+            {
+              "name": "Honey",
+              "price": 1,
+              "icon": "🍯"
+            },
+            {
+              "name": "Pistachio",
+              "price": 1.5,
+              "icon": "🌰"
+            }
+          ],
+          "quantity": 1
+        },
+        {
+          "id": 16,
+          "name": "Chocolate Ice Cream",
+          "image": "/images/chocolate-icecream.jpg",
+          "category": "Ice Cream",
+          "basePrice": 4,
+          "price": 6.5,
+          "extras": [
+            {
+              "name": "Cream",
+              "price": 1,
+              "icon": "🥛"
+            },
+            {
+              "name": "Pistachio",
+              "price": 1.5,
+              "icon": "🌰"
+            }
+          ],
+          "quantity": 1
+        }
+      ],
+      "totalItems": 7,
+      "subtotal": 49,
+      "tax": 7.35,
+      "total": 56.35,
+      "status": "Pending",
+      "createdAt": "2026-04-14T00:25:33.147Z",
+      "id": "cPupU8lKvS4"
+    },
+    {
+      "customer": {
+        "name": "Abir Zin",
+        "phone": "7092195050",
+        "address": "30 watson",
+        "instructions": "Goood Jooob"
+      },
+      "items": [
+        {
+          "id": 6,
+          "name": "Tropical Smoothie",
+          "image": "/images/tropical-smoothie.jpg",
+          "category": "Smoothies",
+          "basePrice": 6,
+          "price": 7,
+          "extras": [
+            {
+              "name": "Cream",
+              "price": 1,
+              "icon": "🥛"
+            }
+          ],
+          "quantity": 1
+        },
+        {
+          "id": 1,
+          "name": "Orange Fresh",
+          "image": "/images/orange-juice.jpg",
+          "category": "Fresh Juices",
+          "basePrice": 4,
+          "price": 4,
+          "extras": [],
+          "quantity": 1
+        },
+        {
+          "id": 12,
+          "name": "Berry Bowl",
+          "image": "/images/berry-bowl.jpg",
+          "category": "Fruit Salads",
+          "basePrice": 6,
+          "price": 7,
+          "extras": [
+            {
+              "name": "Honey",
+              "price": 1,
+              "icon": "🍯"
+            }
+          ],
+          "quantity": 1
+        }
+      ],
+      "totalItems": 3,
+      "subtotal": 18,
+      "tax": 2.6999999999999997,
+      "total": 20.7,
+      "status": "Pending",
+      "createdAt": "2026-04-14T00:26:52.287Z",
+      "id": "ChC2R9KboNU"
+    },
+    {
+      "customer": {
+        "name": "Anas Zen",
+        "phone": "0123456789",
+        "address": "11 Drake waton",
+        "instructions": "Nice work"
+      },
+      "items": [
+        {
+          "id": 2,
+          "name": "Mango Delight",
+          "image": "/images/mango-juice.jpg",
+          "category": "Fresh Juices",
+          "basePrice": 6,
+          "price": 6,
+          "extras": [],
+          "quantity": 1
+        },
+        {
+          "id": 3,
+          "name": "Strawberry Juice",
+          "image": "/images/strawberry-juice.jpg",
+          "category": "Fresh Juices",
+          "basePrice": 5,
+          "price": 5,
+          "extras": [],
+          "quantity": 1
+        },
+        {
+          "id": 5,
+          "name": "Kiwi Smoothie",
+          "image": "/images/kiwi-smoothie.jpg",
+          "category": "Smoothies",
+          "basePrice": 6,
+          "price": 6,
+          "extras": [],
+          "quantity": 1
+        },
+        {
+          "id": 7,
+          "name": "Banana Smoothie",
+          "image": "/images/banana-smoothie.jpg",
+          "category": "Smoothies",
+          "basePrice": 5,
+          "price": 6,
+          "extras": [
+            {
+              "name": "Honey",
+              "price": 1,
+              "icon": "🍯"
+            }
+          ],
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "name": "Vanilla Milkshake",
+          "image": "/images/vanilla-milkshake.jpg",
+          "category": "Milkshakes",
+          "basePrice": 7,
+          "price": 8,
+          "extras": [
+            {
+              "name": "Honey",
+              "price": 1,
+              "icon": "🍯"
+            }
+          ],
+          "quantity": 1
+        },
+        {
+          "id": 11,
+          "name": "Fruit Salad",
+          "image": "/images/fruit-salad.jpg",
+          "category": "Fruit Salads",
+          "basePrice": 6,
+          "price": 7,
+          "extras": [
+            {
+              "name": "Chocolate",
+              "price": 1,
+              "icon": "🍫"
+            }
+          ],
+          "quantity": 1
+        },
+        {
+          "id": 15,
+          "name": "Vanilla Ice Cream",
+          "image": "/images/vanilla-icecream.jpg",
+          "category": "Ice Cream",
+          "basePrice": 4,
+          "price": 6.5,
+          "extras": [
+            {
+              "name": "Chocolate",
+              "price": 1,
+              "icon": "🍫"
+            },
+            {
+              "name": "Pistachio",
+              "price": 1.5,
+              "icon": "🌰"
+            }
+          ],
+          "quantity": 1
+        }
+      ],
+      "totalItems": 7,
+      "subtotal": 44.5,
+      "tax": 6.675,
+      "total": 51.175,
+      "status": "Pending",
+      "createdAt": "2026-04-14T00:29:15.159Z",
+      "id": "NU-icYrhzqM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
+
