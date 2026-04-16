@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { useCart } from "../context/CartContext";
+import Footer from "../components/Footer";
 
 function Order() {
   // Access all cart-related data and actions from the shared cart context.
@@ -11,6 +12,7 @@ function Order() {
     totalPrice,
     removeFromCart,
     deleteFromCart,
+    removeExtraFromCart,
     clearCart,
   } = useCart();
 
@@ -249,7 +251,13 @@ function Order() {
                                 >
                                   {extra.icon ? `${extra.icon} ` : ""}
                                   {extra.name} (+$
-                                  {Number(extra.price).toFixed(2)})
+                                  <button
+                                    type="button"
+                                    className="extra-remove-btn"
+                                    onClick={() => removeExtraFromCart(item, extra)}
+                                  >
+                                   x
+                                  </button>
                                 </span>
                               ))}
                             </div>

@@ -125,7 +125,7 @@ a {
 /* ================= HERO ================= */
 .hero {
   position: relative;
-  min-height: 60vh;
+  min-height: 30vh;
   background: url("/images/shop-interior.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -171,6 +171,19 @@ a {
 
 .menu-hero p {
   font-size: 1.05rem;
+}
+
+.menu-page-hero {
+  position: relative;
+  background-image: url("/images/menu-banner2.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #1b5e20;
 }
 
 /* ================= SECTION DEFAULTS ================= */
@@ -245,7 +258,7 @@ a {
   font-size: 1.1rem;
 }
 
-/* Zoom In خاص لـ Smoothies و Milkshakes */
+/* Zoom In Smoothies + Milkshakes */
 .product-card.smoothies .product-image,
 .product-card.milkshakes .product-image {
   transform: scale(1.12);
@@ -627,13 +640,66 @@ a {
 }
 
 /* ================= FOOTER ================= */
+
 .footer {
   background: var(--secondary);
   color: #fff;
-  text-align: center;
-  padding: 1rem;
+  padding: 1.5rem 1rem;
   margin-top: 3rem;
 }
+
+/* Layout */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* LEFT (Social Icons) */
+.footer-left {
+  display: flex;
+  gap: 15px;
+  font-size: 1.4rem;
+}
+
+.footer-left a {
+  color: #fff;
+  transition: 0.3s;
+}
+
+.footer-left a:hover {
+  color: #ffd1a6;
+}
+
+/* CENTER (Copyright) */
+.footer-center {
+  text-align: center;
+  flex: 1;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* RIGHT (Back to Top) */
+.footer-right {
+  display: flex;
+}
+
+.back-to-top {
+  background: #fff;
+  color: var(--secondary);
+  border: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.back-to-top:hover {
+  background: #f0f0f0;
+}
+
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
@@ -690,4 +756,28 @@ a {
   .product-details-content h2 {
     font-size: 1.8rem;
   }
+}
+
+.delete-btn {
+  background: #c62828;
+}
+
+.delete-btn:hover {
+  background: #b71c1c;
+}
+
+.extra-remove-btn {
+  background: transparent;
+  border: none;
+  color: #c62828;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 8px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.extra-remove-btn:hover {
+  color: #b71c1c;
 }

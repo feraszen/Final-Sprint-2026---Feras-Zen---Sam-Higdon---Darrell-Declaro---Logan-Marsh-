@@ -101,6 +101,13 @@ function ProductCard({ product }) {
           {selectedExtras.map((extra, index) => (
             <span key={`${extra.name}-${index}`} className="extra-badge">
               {extra.icon} {extra.name} (+${Number(extra.price).toFixed(2)})
+              <button
+                type="button"
+                className="extra-remove-btn"
+                onClick={() => toggleExtra(extra)}
+              >
+                x
+              </button>
             </span>
           ))}
         </div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import ProductCard from "../components/ProductCard";
+import Footer from "../components/Footer";
 
 function Menu() {
   // Store all products loaded from the mock backend.
@@ -66,7 +67,7 @@ function Menu() {
     <>
       <Navbar />
 
-      <section className="menu-hero">
+      <section className="menu-hero menu-page-hero">
         <div className="container">
           <h1>Our Fresh Menu</h1>
           <p>Healthy choices for the whole family.</p>
@@ -87,9 +88,7 @@ function Menu() {
         )}
       </main>
 
-      <footer className="footer">
-        <p>© 2026 KeyTop Fresh. All Rights Reserved.</p>
-      </footer>
+      <Footer />
     </>
   );
 }

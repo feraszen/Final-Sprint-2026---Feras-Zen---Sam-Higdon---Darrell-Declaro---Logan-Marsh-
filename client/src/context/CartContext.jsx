@@ -104,6 +104,39 @@ export function CartProvider({ children }) {
     );
   }
 
+  // Remove one selected extra from a matching cart item
+  // and recalculate the item price based on the remaining extras.
+  function removeExtraFromCart(targetItem, extraToRemove) {
+    setCartItems((prevItems) =>
+      prevItems.flatMap((item) => {
+        const isSameItem =
+          Number(item.id) === Number(targetItem.id) &&
+          areExtrasEqual(item.extras || [], targetItem.extras || []);
+
+        if (!isSameItem) return [item];
+
+        const updatedExtras = (item.extras || []).filter(
+          (extra) => extra.name !== extraToRemove.name
+        );
+
+        const extrasTotal = updatedExtras.reduce(
+          (sum, extra) => sum + Number(extra.price),
+          0
+        );
+
+        const updatedPrice = Number(item.basePrice || item.price) + extrasTotal;
+
+        return [
+          {
+            ...item,
+            extras: normalizeExtras(updatedExtras),
+            price: updatedPrice,
+          },
+        ];
+      })
+    );
+  }
+
   // Remove all items from the cart.
   function clearCart() {
     setCartItems([]);
@@ -128,6 +161,7 @@ export function CartProvider({ children }) {
         addToCart,
         removeFromCart,
         deleteFromCart,
+        removeExtraFromCart,
         clearCart,
         totalItems,
         totalPrice,
@@ -142,4 +176,3 @@ export function CartProvider({ children }) {
 export function useCart() {
   return useContext(CartContext);
 }
-

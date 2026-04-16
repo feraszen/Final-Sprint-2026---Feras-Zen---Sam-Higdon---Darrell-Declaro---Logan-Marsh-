@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { useCart } from "../context/CartContext";
+import Footer from "../components/Footer";
 
 // Available extras that the customer can add to the selected product.
 const extrasList = [
@@ -267,6 +268,9 @@ function ProductDetails() {
                         className={`extra-btn ${isSelected ? "active" : ""}`}
                         onClick={() => toggleExtra(extra)}
                         disabled={isUnavailable}
+                        title={`${extra.name} +$${Number(extra.price).toFixed(
+                          2
+                        )}`}
                         style={{
                           opacity: isUnavailable ? 0.6 : 1,
                           cursor: isUnavailable ? "not-allowed" : "pointer",
@@ -282,12 +286,15 @@ function ProductDetails() {
                 {selectedExtras.length > 0 && (
                   <div className="extras-badges">
                     {selectedExtras.map((extra, index) => (
-                      <span
-                        key={`${extra.name}-${index}`}
-                        className="extra-badge"
+                      <span key={`${extra.name}-${index}`} className="extra-badge">
+                        {extra.icon} {extra.name} (+${Number(extra.price).toFixed(2)})
+                        <button
+                        type="button"
+                        className="extra-remove-btn"
+                        onClick={() => toggleExtra(extra)}
                       >
-                        {extra.icon} {extra.name} (+$
-                        {Number(extra.price).toFixed(2)})
+                        x
+                      </button>
                       </span>
                     ))}
                   </div>

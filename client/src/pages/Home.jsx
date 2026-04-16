@@ -2,9 +2,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import ProductCard from "../components/ProductCard";
+import Footer from "../components/Footer";
 
 // Static customer reviews displayed in the homepage review slider.
 const reviews = [
+  {
+    text: "It's good value for money. Taste of ice creams are OK but having good serving size in the price they offer.",
+    author: "Feras Zen.",
+  },
   {
     text: "Absolutely the freshest juice I've ever had! The mango blend is incredible.",
     author: "Emily R.",
@@ -133,9 +138,7 @@ function Home() {
         </section>
       </main>
 
-      <footer className="footer">
-        <p>© 2026 KeyTop Fresh. All Rights Reserved.</p>
-      </footer>
+      <Footer />
     </>
   );
 }

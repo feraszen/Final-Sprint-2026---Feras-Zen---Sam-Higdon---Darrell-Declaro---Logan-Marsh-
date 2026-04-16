@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function About() {
   return (
@@ -15,14 +16,14 @@ function About() {
       <main className="container">
         <section className="about-section">
           <h2>Our Story</h2>
-          <p>
+          <p><center>
             KeyTop Fresh was created with one simple idea, bring fresh,
             healthy, and delicious drinks to families in St. John's.
-          </p>
-          <p>
+          </center></p>
+          <p><center>
             We focus on quality ingredients, vibrant flavors, and a welcoming
             atmosphere where everyone feels at home.
-          </p>
+          </center></p>
         </section>
 
         <section className="about-section">

@@ -18,7 +18,7 @@
       "category": "Fresh Juices",
       "featured": true,
       "description": "A tropical mango juice prepared with fresh mangoes, blended for a rich texture and bright fruity flavor.",
-      "stockQuantity": 14
+      "stockQuantity": 13
     },
     {
       "id": "3",
@@ -28,7 +28,7 @@
       "category": "Fresh Juices",
       "featured": false,
       "description": "A smooth strawberry juice made with sweet strawberries, offering a fresh berry taste in every sip.",
-      "stockQuantity": 14
+      "stockQuantity": 9
     },
     {
       "id": "4",
@@ -48,7 +48,7 @@
       "category": "Smoothies",
       "featured": false,
       "description": "A creamy kiwi smoothie blended with fresh fruit for a tangy flavor and smooth finish.",
-      "stockQuantity": 0
+      "stockQuantity": 9
     },
     {
       "id": "6",
@@ -68,7 +68,7 @@
       "category": "Smoothies",
       "featured": false,
       "description": "A creamy banana smoothie with a naturally sweet flavor and a thick, satisfying texture.",
-      "stockQuantity": 16
+      "stockQuantity": 13
     },
     {
       "id": "8",
@@ -78,7 +78,7 @@
       "category": "Milkshakes",
       "featured": true,
       "description": "A rich chocolate milkshake made with creamy ice cream and deep chocolate flavor.",
-      "stockQuantity": 10
+      "stockQuantity": 9
     },
     {
       "id": "9",
@@ -108,7 +108,7 @@
       "category": "Fruit Salads",
       "featured": false,
       "description": "A colorful fruit salad prepared with fresh seasonal fruits for a naturally sweet and healthy choice.",
-      "stockQuantity": 8
+      "stockQuantity": 7
     },
     {
       "id": "12",
@@ -138,7 +138,7 @@
       "category": "Fruit Salads",
       "featured": false,
       "description": "A larger fruit bowl designed for sharing, prepared with a mix of fresh fruits for the whole family.",
-      "stockQuantity": 4
+      "stockQuantity": 3
     },
     {
       "id": "15",
@@ -148,7 +148,7 @@
       "category": "Ice Cream",
       "featured": false,
       "description": "A creamy vanilla ice cream with a smooth texture and classic sweet flavor.",
-      "stockQuantity": 20
+      "stockQuantity": 19
     },
     {
       "id": "16",
@@ -158,7 +158,7 @@
       "category": "Ice Cream",
       "featured": true,
       "description": "A chocolate ice cream scoop with rich cocoa flavor and a creamy finish.",
-      "stockQuantity": 16
+      "stockQuantity": 15
     },
     {
       "id": "17",
@@ -168,7 +168,7 @@
       "category": "Ice Cream",
       "featured": false,
       "description": "A pistachio ice cream made with a nutty flavor and smooth texture for a premium dessert taste.",
-      "stockQuantity": 14
+      "stockQuantity": 12
     }
   ],
   "orders": [
@@ -308,7 +308,8 @@
       "total": 56.35,
       "status": "Completed",
       "createdAt": "2026-04-14T00:25:33.147Z",
-      "id": "cPupU8lKvS4"
+      "id": "cPupU8lKvS4",
+      "orderNumber": "KT0001001"
     },
     {
       "customer": {
@@ -365,9 +366,10 @@
       "subtotal": 18,
       "tax": 2.6999999999999997,
       "total": 20.7,
-      "status": "Pending",
+      "status": "Completed",
       "createdAt": "2026-04-14T00:26:52.287Z",
-      "id": "ChC2R9KboNU"
+      "id": "ChC2R9KboNU",
+      "orderNumber": "KT0001002"
     },
     {
       "customer": {
@@ -481,9 +483,10 @@
       "subtotal": 44.5,
       "tax": 6.675,
       "total": 51.175,
-      "status": "Pending",
+      "status": "Completed",
       "createdAt": "2026-04-14T00:29:15.159Z",
-      "id": "NU-icYrhzqM"
+      "id": "NU-icYrhzqM",
+      "orderNumber": "KT0001003"
     },
     {
       "customer": {
@@ -562,10 +565,11 @@
       "total": 191.475,
       "status": "Completed",
       "createdAt": "2026-04-15T03:38:32.884Z",
-      "id": "psYC92-PhzU"
+      "id": "psYC92-PhzU",
+      "orderNumber": "KT0001004"
     },
     {
-      "orderNumber": "KT0001004",
+      "orderNumber": "KT0001005",
       "customer": {
         "name": "Feras Zen",
         "phone": "7092193153",
@@ -609,9 +613,191 @@
       "subtotal": 94.5,
       "tax": 14.174999999999999,
       "total": 108.675,
-      "status": "Pending",
+      "status": "Completed",
       "createdAt": "2026-04-15T04:12:43.035Z",
       "id": "7umriUtrTRQ"
+    },
+    {
+      "orderNumber": "KT0001006",
+      "customer": {
+        "name": "Abir Zin",
+        "phone": "7092195050",
+        "address": "30 watson",
+        "instructions": "hi"
+      },
+      "items": [
+        {
+          "id": 3,
+          "name": "Strawberry Juice",
+          "image": "/images/strawberry-juice.jpg",
+          "category": "Fresh Juices",
+          "basePrice": 5,
+          "price": 7,
+          "extras": [
+            {
+              "name": "Chocolate",
+              "price": 1,
+              "icon": "🍫"
+            },
+            {
+              "name": "Honey",
+              "price": 1,
+              "icon": "🍯"
+            }
+          ],
+          "quantity": 1
+        }
+      ],
+      "totalItems": 1,
+      "subtotal": 7,
+      "tax": 1.05,
+      "total": 8.05,
+      "status": "Completed",
+      "createdAt": "2026-04-16T01:25:18.377Z",
+      "id": "M9rrpM_vj7Y"
+    },
+    {
+      "orderNumber": "KT0001007",
+      "customer": {
+        "name": "feras zen",
+        "phone": "7092193153",
+        "address": "12 Drake Crescent",
+        "instructions": "goooooood"
+      },
+      "items": [
+        {
+          "id": 2,
+          "name": "Mango Delight",
+          "image": "/images/mango-juice.jpg",
+          "category": "Fresh Juices",
+          "basePrice": 6,
+          "price": 7,
+          "extras": [
+            {
+              "name": "Honey",
+              "price": 1,
+              "icon": "🍯"
+            }
+          ],
+          "quantity": 1
+        },
+        {
+          "id": 7,
+          "name": "Banana Smoothie",
+          "image": "/images/banana-smoothie.jpg",
+          "category": "Smoothies",
+          "basePrice": 5,
+          "price": 5,
+          "extras": [],
+          "quantity": 1
+        }
+      ],
+      "totalItems": 2,
+      "subtotal": 12,
+      "tax": 1.7999999999999998,
+      "total": 13.8,
+      "status": "Pending",
+      "createdAt": "2026-04-16T01:26:35.774Z",
+      "id": "wV6-5fgMuCg"
+    },
+    {
+      "orderNumber": "KT0001007",
+      "customer": {
+        "name": "Anas Zen",
+        "phone": "7092196969",
+        "address": "35 Watson",
+        "instructions": "jooooooood"
+      },
+      "items": [
+        {
+          "id": 7,
+          "name": "Banana Smoothie",
+          "image": "/images/banana-smoothie.jpg",
+          "category": "Smoothies",
+          "basePrice": 5,
+          "price": 6,
+          "extras": [
+            {
+              "name": "Honey",
+              "price": 1,
+              "icon": "🍯"
+            }
+          ],
+          "quantity": 2
+        }
+      ],
+      "totalItems": 2,
+      "subtotal": 12,
+      "tax": 1.7999999999999998,
+      "total": 13.8,
+      "status": "Pending",
+      "createdAt": "2026-04-16T01:27:45.921Z",
+      "id": "JmQUfMIRjKQ"
+    },
+    {
+      "orderNumber": "KT0001008",
+      "customer": {
+        "name": "Ragheda Zen",
+        "phone": "7092195050",
+        "address": "12 Drake Crescent",
+        "instructions": "جيد جدا"
+      },
+      "items": [
+        {
+          "id": 5,
+          "name": "Kiwi Smoothie",
+          "image": "/images/kiwi-smoothie.jpg",
+          "category": "Smoothies",
+          "basePrice": 6,
+          "price": 7,
+          "extras": [
+            {
+              "name": "Honey",
+              "price": 1,
+              "icon": "🍯"
+            }
+          ],
+          "quantity": 1
+        },
+        {
+          "id": 14,
+          "name": "Family Fruit Bowl",
+          "image": "/images/family-fruit.jpg",
+          "category": "Fruit Salads",
+          "basePrice": 7,
+          "price": 11.5,
+          "extras": [
+            {
+              "name": "Chocolate",
+              "price": 1,
+              "icon": "🍫"
+            },
+            {
+              "name": "Cream",
+              "price": 1,
+              "icon": "🥛"
+            },
+            {
+              "name": "Honey",
+              "price": 1,
+              "icon": "🍯"
+            },
+            {
+              "name": "Pistachio",
+              "price": 1.5,
+              "icon": "🌰"
+            }
+          ],
+          "quantity": 1
+        }
+      ],
+      "totalItems": 2,
+      "subtotal": 18.5,
+      "tax": 2.775,
+      "total": 21.275,
+      "status": "Pending",
+      "createdAt": "2026-04-16T01:29:12.466Z",
+      "id": "M8FdZHPR1NY"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
