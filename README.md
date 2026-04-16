@@ -1,72 +1,83 @@
-# KeyTop Fresh – E-Commerce Web Application
+# 🍹 KeyTop Fresh – E-Commerce Web Application
 
-## Project Overview
-KeyTop Fresh is a modern e-commerce web application for ordering fresh juices, smoothies, desserts, and fruit-based products. The application provides an interactive shopping experience where users can browse products, view product details, add items to the cart, and complete a simulated checkout process.
+## 📌 Project Overview
 
-This project was developed as part of a group assignment to apply React fundamentals, frontend architecture, routing, state management, and unit testing.
+**KeyTop Fresh** is a modern e-commerce web application for ordering fresh juices, smoothies, desserts, and fruit-based products.
 
-## Team Members
-- Sam Higdon
-- Darrell Declaro
-- Logan Marsh
-- Feras Zen
+The application allows users to browse products, customize items with extras, manage a shopping cart, and complete a simulated checkout process. It also includes an admin dashboard for managing orders.
 
-## Project Date
+This project was developed as part of a group assignment using React and related frontend technologies.
+
+---
+
+## 👥 Team Members
+
+- Sam Higdon  
+- Darrell Declaro  
+- Logan Marsh  
+- Feras Zen  
+
+---
+
+## 📅 Project Date
+
 April 2026
 
-## Features
+---
 
-### Product Catalog
-- Displays products from a mock API
-- Organized by categories
-- Shows image, name, price, and actions
+## 🚀 Features
 
-### Product Details Page
+### 🛍️ Product Catalog
+- Fetches products from a mock API (JSON Server)
+- Displays products grouped by category:
+  - Fresh Juices
+  - Smoothies
+  - Milkshakes
+  - Fruit Salads
+  - Ice Cream
+- Shows product image, name, and price
+
+---
+
+### 🔍 Product Details Page
 - Displays full product information
-- Supports dynamic price calculation
-- Includes stock tracking
-- Allows quantity selection
-- Supports add to cart functionality
+- Shows:
+  - category
+  - description
+  - price
+  - stock availability
+- Supports:
+  - selecting extras (Honey, Chocolate, Pistachio, Cream)
+  - dynamic price updates
+  - quantity selection
+  - adding to cart
+- Prevents adding products when stock is unavailable
 
-### Shopping Cart
-- Add, remove, and update product quantities
+---
+
+### 🛒 Shopping Cart (Order Page)
+- Add products to cart
+- Increase / decrease quantity
+- Remove items
 - Display selected extras
-- Real-time total price calculation
+- Calculate total price dynamically
 
-### Checkout System
-- Customer information form
-- Order summary with tax calculation
-- Simulated order submission
-- Invoice display after checkout
+---
 
-### Admin Dashboard
-- View all orders
-- Update order status
-- Delete orders
-- View order statistics and revenue summary
+### 💳 Checkout System
+- Collects customer information:
+  - name
+  - phone
+  - address
+- Displays order summary
+- Simulates order submission
+- Displays invoice after checkout
 
-## Technical Stack
-- React
-- Vite
-- React Router
-- Context API
-- JSON Server
-- Custom CSS
-- Vitest
-- React Testing Library
-- Jest-DOM
-- jsdom
+---
 
-## API Endpoints
-- `GET /products` – Get all products
-- `GET /products/:id` – Get a single product
-- `POST /orders` – Create a new order
-- `GET /orders` – Get all orders
-- `PATCH /orders/:id` – Update order status
-- `DELETE /orders/:id` – Delete an order
+### 🧾 Custom Order Number System
+Each order is assigned a custom order number in the format:
 
-## How to Run the Project
-
-### Install dependencies
-```bash
-npm install
+```text
+KT0001000
+KT0001001
