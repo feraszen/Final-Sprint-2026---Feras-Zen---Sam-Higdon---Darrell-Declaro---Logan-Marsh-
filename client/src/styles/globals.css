@@ -781,3 +781,11 @@ a {
 .extra-remove-btn:hover {
   color: #b71c1c;
 }
+
+.delete-btn {
+  background: #c62828;
+}
+
+.delete-btn:hover {
+  background: #b71c1c;
+}

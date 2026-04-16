@@ -197,13 +197,7 @@
           "category": "Fresh Juices",
           "basePrice": 5,
           "price": 6,
-          "extras": [
-            {
-              "name": "Chocolate",
-              "price": 1,
-              "icon": "🍫"
-            }
-          ],
+          "extras": [],
           "quantity": 1
         },
         {
@@ -292,11 +286,6 @@
               "name": "Cream",
               "price": 1,
               "icon": "🥛"
-            },
-            {
-              "name": "Pistachio",
-              "price": 1.5,
-              "icon": "🌰"
             }
           ],
           "quantity": 1
