@@ -8,7 +8,7 @@
       "category": "Fresh Juices",
       "featured": true,
       "description": "A refreshing orange juice made from ripe oranges, served chilled for a naturally sweet and energizing taste.",
-      "stockQuantity": 17
+      "stockQuantity": 20
     },
     {
       "id": "2",
@@ -18,7 +18,7 @@
       "category": "Fresh Juices",
       "featured": true,
       "description": "A tropical mango juice prepared with fresh mangoes, blended for a rich texture and bright fruity flavor.",
-      "stockQuantity": 13
+      "stockQuantity": 20
     },
     {
       "id": "3",
@@ -28,7 +28,7 @@
       "category": "Fresh Juices",
       "featured": false,
       "description": "A smooth strawberry juice made with sweet strawberries, offering a fresh berry taste in every sip.",
-      "stockQuantity": 9
+      "stockQuantity": 20
     },
     {
       "id": "4",
@@ -38,7 +38,7 @@
       "category": "Fresh Juices",
       "featured": false,
       "description": "A cool watermelon juice that is light, hydrating, and perfect for a refreshing summer-style drink.",
-      "stockQuantity": 12
+      "stockQuantity": 20
     },
     {
       "id": "5",
@@ -48,7 +48,7 @@
       "category": "Smoothies",
       "featured": false,
       "description": "A creamy kiwi smoothie blended with fresh fruit for a tangy flavor and smooth finish.",
-      "stockQuantity": 9
+      "stockQuantity": 20
     },
     {
       "id": "6",
@@ -58,7 +58,7 @@
       "category": "Smoothies",
       "featured": true,
       "description": "A tropical smoothie bursting with fruity flavor, made to deliver a refreshing and exotic taste.",
-      "stockQuantity": 0
+      "stockQuantity": 20
     },
     {
       "id": "7",
@@ -68,7 +68,7 @@
       "category": "Smoothies",
       "featured": false,
       "description": "A creamy banana smoothie with a naturally sweet flavor and a thick, satisfying texture.",
-      "stockQuantity": 13
+      "stockQuantity": 19
     },
     {
       "id": "8",
@@ -78,7 +78,7 @@
       "category": "Milkshakes",
       "featured": true,
       "description": "A rich chocolate milkshake made with creamy ice cream and deep chocolate flavor.",
-      "stockQuantity": 9
+      "stockQuantity": 19
     },
     {
       "id": "9",
@@ -88,7 +88,7 @@
       "category": "Milkshakes",
       "featured": false,
       "description": "A classic strawberry milkshake with a creamy texture and sweet berry taste.",
-      "stockQuantity": 9
+      "stockQuantity": 18
     },
     {
       "id": "10",
@@ -98,7 +98,7 @@
       "category": "Milkshakes",
       "featured": false,
       "description": "A smooth vanilla milkshake with a creamy finish and a classic sweet flavor.",
-      "stockQuantity": 10
+      "stockQuantity": 18
     },
     {
       "id": "11",
@@ -108,7 +108,7 @@
       "category": "Fruit Salads",
       "featured": false,
       "description": "A colorful fruit salad prepared with fresh seasonal fruits for a naturally sweet and healthy choice.",
-      "stockQuantity": 7
+      "stockQuantity": 20
     },
     {
       "id": "12",
@@ -118,7 +118,7 @@
       "category": "Fruit Salads",
       "featured": true,
       "description": "A fresh berry bowl filled with mixed berries for a bright, juicy, and refreshing snack.",
-      "stockQuantity": 7
+      "stockQuantity": 18
     },
     {
       "id": "13",
@@ -128,7 +128,7 @@
       "category": "Fruit Salads",
       "featured": false,
       "description": "A tropical fruit bowl with fresh fruit pieces and vibrant flavors inspired by island-style freshness.",
-      "stockQuantity": 6
+      "stockQuantity": 20
     },
     {
       "id": "14",
@@ -138,7 +138,7 @@
       "category": "Fruit Salads",
       "featured": false,
       "description": "A larger fruit bowl designed for sharing, prepared with a mix of fresh fruits for the whole family.",
-      "stockQuantity": 3
+      "stockQuantity": 16
     },
     {
       "id": "15",
@@ -158,7 +158,7 @@
       "category": "Ice Cream",
       "featured": true,
       "description": "A chocolate ice cream scoop with rich cocoa flavor and a creamy finish.",
-      "stockQuantity": 15
+      "stockQuantity": 19
     },
     {
       "id": "17",
@@ -168,7 +168,7 @@
       "category": "Ice Cream",
       "featured": false,
       "description": "A pistachio ice cream made with a nutty flavor and smooth texture for a premium dessert taste.",
-      "stockQuantity": 12
+      "stockQuantity": 20
     }
   ],
   "orders": [
@@ -787,6 +787,156 @@
       "status": "Pending",
       "createdAt": "2026-04-16T01:29:12.466Z",
       "id": "M8FdZHPR1NY"
+    },
+    {
+      "orderNumber": "KT0001009",
+      "customer": {
+        "name": "Feras Zen",
+        "phone": "7092193153",
+        "address": "12 Drake Crescent",
+        "instructions": "Good Evening"
+      },
+      "items": [
+        {
+          "id": 3,
+          "name": "Strawberry Juice",
+          "price": 9.5,
+          "image": "/images/strawberry-juice.jpg",
+          "category": "Fresh Juices",
+          "featured": false,
+          "description": "A smooth strawberry juice made with sweet strawberries, offering a fresh berry taste in every sip.",
+          "stockQuantity": 9,
+          "basePrice": 5,
+          "extras": [
+            {
+              "name": "Chocolate",
+              "price": 1,
+              "icon": "🍫"
+            },
+            {
+              "name": "Cream",
+              "price": 1,
+              "icon": "🥛"
+            },
+            {
+              "name": "Honey",
+              "price": 1,
+              "icon": "🍯"
+            },
+            {
+              "name": "Pistachio",
+              "price": 1.5,
+              "icon": "🌰"
+            }
+          ],
+          "size": "Regular",
+          "quantity": 1
+        },
+        {
+          "id": 3,
+          "name": "Strawberry Juice",
+          "price": 7,
+          "image": "/images/strawberry-juice.jpg",
+          "category": "Fresh Juices",
+          "featured": false,
+          "description": "A smooth strawberry juice made with sweet strawberries, offering a fresh berry taste in every sip.",
+          "stockQuantity": 9,
+          "basePrice": 5,
+          "extras": [
+            {
+              "name": "Chocolate",
+              "price": 1,
+              "icon": "🍫"
+            },
+            {
+              "name": "Honey",
+              "price": 1,
+              "icon": "🍯"
+            }
+          ],
+          "size": "Regular",
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "name": "Mango Delight",
+          "image": "/images/mango-juice.jpg",
+          "category": "Fresh Juices",
+          "basePrice": 6,
+          "price": 8,
+          "size": "Regular",
+          "extras": [
+            {
+              "name": "Cream",
+              "price": 1,
+              "icon": "🥛"
+            },
+            {
+              "name": "Honey",
+              "price": 1,
+              "icon": "🍯"
+            }
+          ],
+          "quantity": 2
+        }
+      ],
+      "totalItems": 4,
+      "subtotal": 32.5,
+      "tax": 4.875,
+      "total": 37.375,
+      "status": "Pending",
+      "createdAt": "2026-04-16T23:21:24.274Z",
+      "id": "rO3SwfmQ6Ww"
+    },
+    {
+      "orderNumber": "KT0001010",
+      "customer": {
+        "name": "Abir Zin",
+        "phone": "7092196969",
+        "address": "30 watson",
+        "instructions": "HIIIIIi"
+      },
+      "items": [
+        {
+          "id": 14,
+          "name": "Family Fruit Bowl",
+          "image": "/images/family-fruit.jpg",
+          "category": "Fruit Salads",
+          "basePrice": 7,
+          "price": 11.5,
+          "size": "Regular",
+          "extras": [
+            {
+              "name": "Chocolate",
+              "price": 1,
+              "icon": "🍫"
+            },
+            {
+              "name": "Cream",
+              "price": 1,
+              "icon": "🥛"
+            },
+            {
+              "name": "Honey",
+              "price": 1,
+              "icon": "🍯"
+            },
+            {
+              "name": "Pistachio",
+              "price": 1.5,
+              "icon": "🌰"
+            }
+          ],
+          "quantity": 2
+        }
+      ],
+      "totalItems": 2,
+      "subtotal": 23,
+      "tax": 3.4499999999999997,
+      "total": 26.45,
+      "status": "Pending",
+      "createdAt": "2026-04-17T00:58:22.469Z",
+      "id": "7QR9AgJqpM8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 
-// List of optional extras that can be added to any product.
+// ✅ Extras ثابتة (المهم)
 const extrasList = [
   { name: "Honey", price: 1, icon: "🍯" },
   { name: "Chocolate", price: 1, icon: "🍫" },
@@ -11,53 +11,43 @@ const extrasList = [
 ];
 
 function ProductCard({ product }) {
-  // Access the shared cart function from the cart context.
   const { addToCart } = useCart();
 
-  // Store the extras currently selected by the user for this product.
   const [selectedExtras, setSelectedExtras] = useState([]);
+  const [selectedSize, setSelectedSize] = useState("Regular");
 
-  // Prevent rendering if no product data was passed to the component.
-  if (!product) return null;
-
-  // Add or remove an extra depending on whether it is already selected.
+  // Toggle extra
   function toggleExtra(extra) {
-    setSelectedExtras((prev) =>
-      prev.some((item) => item.name === extra.name)
-        ? prev.filter((item) => item.name !== extra.name)
-        : [...prev, extra]
-    );
+    setSelectedExtras((prev) => {
+      const exists = prev.find((e) => e.name === extra.name);
+      if (exists) {
+        return prev.filter((e) => e.name !== extra.name);
+      }
+      return [...prev, extra];
+    });
   }
 
-  // Calculate the total price of all selected extras.
+  // Calculate extras total
   const extrasTotal = selectedExtras.reduce(
     (sum, extra) => sum + Number(extra.price),
     0
   );
 
-  // Final displayed price = base product price + selected extras price.
-  const finalPrice = Number(product.price) + extrasTotal;
+  // Size adjustment
+  const sizeAdjustment = selectedSize === "Small" ? -1 : 0;
 
-  // Build the product object in the required cart format, then add it to cart.
+  // Final price
+  const finalPrice =
+    Number(product.price) + extrasTotal + sizeAdjustment;
+
   function handleAddToCart() {
-    const itemToAdd = {
-      id: Number(product.id),
-      name: product.name,
-      image: product.image,
-      category: product.category,
+    addToCart({
+      ...product,
+      price: finalPrice,
       basePrice: Number(product.price),
-      price: Number(finalPrice),
-      extras: selectedExtras.map((extra) => ({
-        name: extra.name,
-        price: Number(extra.price),
-        icon: extra.icon,
-      })),
-    };
-
-    addToCart(itemToAdd);
-
-    // Clear selected extras after adding the item, so the next selection starts fresh.
-    setSelectedExtras([]);
+      extras: selectedExtras,
+      size: selectedSize,
+    });
   }
 
   return (
@@ -71,78 +61,97 @@ function ProductCard({ product }) {
         }}
       />
 
-      <h3 className="product-name">{product.name}</h3>
-      <p className="product-price">${finalPrice.toFixed(2)}</p>
+      <h3>{product.name}</h3>
 
-      {/* Render all available extras as selectable buttons. */}
+      {/* ===== SIZE ===== */}
+      <div className="size-options">
+        <button
+          type="button"
+          className={`size-btn ${
+            selectedSize === "Small" ? "active" : ""
+          }`}
+          onClick={() => setSelectedSize("Small")}
+        >
+          Small
+        </button>
+
+        <button
+          type="button"
+          className={`size-btn ${
+            selectedSize === "Regular" ? "active" : ""
+          }`}
+          onClick={() => setSelectedSize("Regular")}
+        >
+          Regular
+        </button>
+      </div>
+
+      {/* ===== EXTRAS ===== */}
       <div className="extras">
         {extrasList.map((extra) => {
           const isSelected = selectedExtras.some(
-            (item) => item.name === extra.name
+            (e) => e.name === extra.name
           );
 
           return (
             <button
               key={extra.name}
               type="button"
-              className={`extra-btn ${isSelected ? "active" : ""}`}
+              className={`extra-btn ${
+                isSelected ? "selected" : ""
+              }`}
               onClick={() => toggleExtra(extra)}
               title={`${extra.name} +$${Number(extra.price).toFixed(2)}`}
             >
-              {extra.icon}
+              {extra.icon} {extra.name}
             </button>
           );
         })}
       </div>
 
-      {/* Display the currently selected extras as badges under the product. */}
+      {/* ===== SELECTED EXTRAS ===== */}
       {selectedExtras.length > 0 && (
         <div className="extras-badges">
           {selectedExtras.map((extra, index) => (
-            <span key={`${extra.name}-${index}`} className="extra-badge">
-              {extra.icon} {extra.name} (+${Number(extra.price).toFixed(2)})
+            <span
+              key={`${extra.name}-${index}`}
+              className="extra-badge"
+            >
+              {extra.icon} {extra.name} (+$
+              {Number(extra.price).toFixed(2)})
               <button
                 type="button"
                 className="extra-remove-btn"
                 onClick={() => toggleExtra(extra)}
               >
-                x
+                ×
               </button>
             </span>
           ))}
         </div>
       )}
 
-      {/* Provide navigation to the product details page and add-to-cart action. */}
-      <div
-        style={{
-          display: "flex",
-          gap: "10px",
-          flexWrap: "wrap",
-          marginTop: "auto",
-        }}
-      >
-        <Link
-          to={`/product/${product.id}`}
-          className="action-btn"
-          style={{
-            textAlign: "center",
-            display: "inline-block",
-            flex: "1",
-            minWidth: "140px",
-          }}
-        >
-          View Details
-        </Link>
+      {/* ===== PRICE ===== */}
+      <p className="product-price">
+        ${finalPrice.toFixed(2)}
+      </p>
 
+      {/* ===== ACTIONS ===== */}
+      <div className="product-actions">
         <button
           type="button"
-          className="add-to-cart"
+          className="checkout-btn"
           onClick={handleAddToCart}
-          style={{ flex: "1", minWidth: "140px" }}
         >
           Add to Cart
         </button>
+
+        <Link
+          to={`/product/${product.id}`}
+          className="view-details"
+        >
+          View Details
+        </Link>
       </div>
     </div>
   );

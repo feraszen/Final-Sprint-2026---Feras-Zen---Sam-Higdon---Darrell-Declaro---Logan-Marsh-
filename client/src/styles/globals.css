@@ -269,6 +269,47 @@ a {
   transform: scale(1.18);
 }
 
+/* ================= PRODUCT CARD ACTIONS ================= */
+.product-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+  margin-top: auto;
+  align-items: stretch;
+}
+
+.product-actions .checkout-btn,
+.product-actions .view-details {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  padding: 0.75rem 1.2rem;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.product-actions .view-details {
+  box-sizing: border-box;
+}
+
+/* ================= VIEW DETAILS BUTTON ================= */
+.view-details {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  transition: 0.3s;
+}
+
+.view-details:hover {
+  background: var(--secondary);
+  color: #fff;
+}
+
 /* ================= PRODUCT DETAILS ================= */
 .product-details-card {
   display: grid;
@@ -369,6 +410,65 @@ a {
   display: inline-block;
 }
 
+.delete-btn {
+  background: #c62828;
+}
+
+.delete-btn:hover {
+  background: #b71c1c;
+}
+
+/* ================= SIZE OPTIONS ================= */
+.size-options {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 0.4rem 0 0.2rem;
+  flex-wrap: wrap;
+}
+
+.size-btn {
+  background: #fff;
+  color: var(--secondary);
+  border: 1px solid #ddd;
+  padding: 0.45rem 0.95rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+  min-width: 90px;
+}
+
+.size-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.size-btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* ================= PRODUCT DETAILS SIZE ================= */
+.product-details-size {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.product-details-size-label {
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.product-details-size .size-btn {
+  min-width: 100px;
+}
+
 /* ================= EXTRAS ================= */
 .extras {
   display: flex;
@@ -399,6 +499,30 @@ a {
   border-color: var(--primary);
 }
 
+.product-card .extras {
+  margin: 0.4rem 0 0.2rem;
+}
+
+.product-card .extra-btn {
+  width: auto;
+  min-height: 40px;
+  padding: 0.45rem 0.8rem;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--secondary);
+}
+
+.product-card .extra-btn.selected,
+.product-card .extra-btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
 .extras-display {
   margin-top: 0.3rem;
 }
@@ -418,6 +542,22 @@ a {
   font-size: 0.8rem;
   color: var(--secondary);
   font-weight: 600;
+}
+
+.extra-remove-btn {
+  background: transparent;
+  border: none;
+  color: #c62828;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 8px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.extra-remove-btn:hover {
+  color: #b71c1c;
 }
 
 /* ================= MENU ================= */
@@ -540,7 +680,8 @@ a {
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
   padding: 0.8rem;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -640,7 +781,6 @@ a {
 }
 
 /* ================= FOOTER ================= */
-
 .footer {
   background: var(--secondary);
   color: #fff;
@@ -648,7 +788,6 @@ a {
   margin-top: 3rem;
 }
 
-/* Layout */
 .footer-content {
   display: flex;
   justify-content: space-between;
@@ -656,7 +795,6 @@ a {
   flex-wrap: wrap;
 }
 
-/* LEFT (Social Icons) */
 .footer-left {
   display: flex;
   gap: 15px;
@@ -672,7 +810,6 @@ a {
   color: #ffd1a6;
 }
 
-/* CENTER (Copyright) */
 .footer-center {
   text-align: center;
   flex: 1;
@@ -680,7 +817,6 @@ a {
   opacity: 0.9;
 }
 
-/* RIGHT (Back to Top) */
 .footer-right {
   display: flex;
 }
@@ -699,7 +835,6 @@ a {
 .back-to-top:hover {
   background: #f0f0f0;
 }
-
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
@@ -756,36 +891,75 @@ a {
   .product-details-content h2 {
     font-size: 1.8rem;
   }
+
+  .product-actions {
+    flex-direction: column;
+  }
+
+  .size-options,
+  .product-details-size {
+    justify-content: center;
+  }
 }
 
-.delete-btn {
-  background: #c62828;
+/* ================= PRODUCT DETAILS EXTRAS ================= */
+.product-details-extras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 0.5rem;
 }
 
-.delete-btn:hover {
-  background: #b71c1c;
-}
-
-.extra-remove-btn {
-  background: transparent;
-  border: none;
-  color: #c62828;
-  font-size: 1rem;
-  font-weight: bold;
-  margin-left: 8px;
+.product-details-extras .extra-btn {
+  width: auto;
+  min-height: 42px;
+  padding: 0.45rem 0.9rem;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: #fff;
   cursor: pointer;
+  font-weight: 600;
+  color: var(--secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.3s;
+}
+
+.product-details-extras .extra-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.product-details-extras .extra-btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* ===== FIX MENU BUTTON ALIGNMENT ONLY ===== */
+.product-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.product-actions .checkout-btn,
+.product-actions .view-details {
+  flex: 1;
+  height: 46px;           
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;      
+  font-weight: 600;
   line-height: 1;
-  padding: 0;
+  padding: 0 1rem;         
 }
 
-.extra-remove-btn:hover {
-  color: #b71c1c;
-}
-
-.delete-btn {
-  background: #c62828;
-}
-
-.delete-btn:hover {
-  background: #b71c1c;
+/* ===== FIX MENU BUTTONS FINAL ===== */
+.product-card .product-actions .checkout-btn {
+  width: auto;
+  margin-top: 0;
 }

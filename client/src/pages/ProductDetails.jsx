@@ -28,6 +28,9 @@ function ProductDetails() {
   // Store the currently selected extras for this product.
   const [selectedExtras, setSelectedExtras] = useState([]);
 
+  // Store selected size.
+  const [selectedSize, setSelectedSize] = useState("Regular");
+
   // Store the quantity selected by the user before adding to cart.
   const [quantity, setQuantity] = useState(1);
 
@@ -80,8 +83,13 @@ function ProductDetails() {
     0
   );
 
-  // Final unit price equals the base product price plus the extras total.
-  const finalPrice = product ? Number(product.price) + extrasTotal : 0;
+  // Adjust price based on size.
+  const sizeAdjustment = selectedSize === "Small" ? -1 : 0;
+
+  // Final unit price equals the base product price plus the extras total and size adjustment.
+  const finalPrice = product
+    ? Number(product.price) + extrasTotal + sizeAdjustment
+    : 0;
 
   // Read raw stock from the backend.
   const stockQuantity = Number(product?.stockQuantity || 0);
@@ -155,6 +163,7 @@ function ProductDetails() {
       category: product.category,
       basePrice: Number(product.price),
       price: Number(finalPrice),
+      size: selectedSize,
       extras: selectedExtras.map((extra) => ({
         name: extra.name,
         price: Number(extra.price),
@@ -170,10 +179,11 @@ function ProductDetails() {
       selectedExtras.length > 0 ? ` with ${selectedExtras.length} extra(s)` : "";
 
     setSuccessMessage(
-      `${quantity} ${product.name} added to cart${extraSummary}.`
+      `${quantity} ${selectedSize} ${product.name} added to cart${extraSummary}.`
     );
 
     setSelectedExtras([]);
+    setSelectedSize("Regular");
     setQuantity(1);
 
     window.clearTimeout(window.productDetailsSuccessTimeout);
@@ -194,16 +204,12 @@ function ProductDetails() {
       </section>
 
       <main className="container" style={{ padding: "4rem 0" }}>
-        {/* Display a loading message while product data is being fetched. */}
         {loading && <p>Loading product details...</p>}
 
-        {/* Display an error message if the product request fails. */}
         {!loading && errorMessage && <p>{errorMessage}</p>}
 
-        {/* Display a fallback message if no product is found. */}
         {!loading && !errorMessage && !product && <p>Product not found.</p>}
 
-        {/* Render the full product details only when valid product data exists. */}
         {!loading && !errorMessage && product && (
           <>
             <section className="product-details-card">
@@ -250,12 +256,43 @@ function ProductDetails() {
                   <strong>Remaining to Add:</strong> {remainingStock}
                 </p>
 
+                {/* Size selection */}
+                <div className="product-details-size">
+                  <span className="product-details-size-label">Size:</span>
+
+                  <button
+                    type="button"
+                    className={`size-btn ${selectedSize === "Small" ? "active" : ""}`}
+                    onClick={() => setSelectedSize("Small")}
+                    disabled={isUnavailable}
+                    style={{
+                      opacity: isUnavailable ? 0.6 : 1,
+                      cursor: isUnavailable ? "not-allowed" : "pointer",
+                    }}
+                  >
+                    Small
+                  </button>
+
+                  <button
+                    type="button"
+                    className={`size-btn ${selectedSize === "Regular" ? "active" : ""}`}
+                    onClick={() => setSelectedSize("Regular")}
+                    disabled={isUnavailable}
+                    style={{
+                      opacity: isUnavailable ? 0.6 : 1,
+                      cursor: isUnavailable ? "not-allowed" : "pointer",
+                    }}
+                  >
+                    Regular
+                  </button>
+                </div>
+
                 <p className="product-details-price">
                   Unit Price: ${finalPrice.toFixed(2)}
                 </p>
 
                 {/* Render all optional extras that can be selected by the user. */}
-                <div className="extras">
+                <div className="product-details-extras">
                   {extrasList.map((extra) => {
                     const isSelected = selectedExtras.some(
                       (item) => item.name === extra.name
@@ -268,15 +305,13 @@ function ProductDetails() {
                         className={`extra-btn ${isSelected ? "active" : ""}`}
                         onClick={() => toggleExtra(extra)}
                         disabled={isUnavailable}
-                        title={`${extra.name} +$${Number(extra.price).toFixed(
-                          2
-                        )}`}
+                        title={`${extra.name} +$${Number(extra.price).toFixed(2)}`}
                         style={{
                           opacity: isUnavailable ? 0.6 : 1,
                           cursor: isUnavailable ? "not-allowed" : "pointer",
                         }}
                       >
-                        {extra.icon}
+                        {extra.icon} {extra.name}
                       </button>
                     );
                   })}
@@ -286,15 +321,20 @@ function ProductDetails() {
                 {selectedExtras.length > 0 && (
                   <div className="extras-badges">
                     {selectedExtras.map((extra, index) => (
-                      <span key={`${extra.name}-${index}`} className="extra-badge">
-                        {extra.icon} {extra.name} (+${Number(extra.price).toFixed(2)})
-                        <button
-                        type="button"
-                        className="extra-remove-btn"
-                        onClick={() => toggleExtra(extra)}
+                      <span
+                        key={`${extra.name}-${index}`}
+                        className="extra-badge"
                       >
-                        x
-                      </button>
+                        {extra.icon} {extra.name} (+$
+                        {Number(extra.price).toFixed(2)})
+                        <button
+                          type="button"
+                          className="extra-remove-btn"
+                          onClick={() => toggleExtra(extra)}
+                          aria-label={`Remove ${extra.name}`}
+                        >
+                          ×
+                        </button>
                       </span>
                     ))}
                   </div>
@@ -363,7 +403,6 @@ function ProductDetails() {
                   </div>
                 </div>
 
-                {/* Show a small note when the selected quantity reaches the stock limit. */}
                 {hasReachedStockLimit && (
                   <p
                     style={{
@@ -377,7 +416,6 @@ function ProductDetails() {
                   </p>
                 )}
 
-                {/* Explain why the product cannot be added if all remaining stock is already reserved in cart. */}
                 {isFullyReservedInCart && (
                   <p
                     style={{
@@ -407,7 +445,6 @@ function ProductDetails() {
                   </p>
                 </div>
 
-                {/* Show a temporary success message after adding the item to the cart. */}
                 {successMessage && (
                   <div
                     style={{
@@ -425,7 +462,6 @@ function ProductDetails() {
                   </div>
                 )}
 
-                {/* Main action buttons for adding the selected item or going directly to the cart page. */}
                 <div
                   style={{
                     display: "flex",
@@ -465,7 +501,6 @@ function ProductDetails() {
               </div>
             </section>
 
-            {/* Navigation control that returns the user to the menu page. */}
             <div
               style={{
                 display: "flex",
@@ -484,6 +519,8 @@ function ProductDetails() {
           </>
         )}
       </main>
+
+      <Footer />
     </>
   );
 }

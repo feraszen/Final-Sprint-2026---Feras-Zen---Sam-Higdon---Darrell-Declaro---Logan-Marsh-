@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { useCart } from "../context/CartContext";
 import Footer from "../components/Footer";
+import { useCart } from "../context/CartContext";
 
 function Order() {
   // Access all cart-related data and actions from the shared cart context.
@@ -213,7 +213,7 @@ function Order() {
                     <div
                       key={`${item.id}-${index}-${JSON.stringify(
                         item.extras || []
-                      )}`}
+                      )}-${item.size || "Regular"}`}
                       className="cart-item"
                     >
                       <div className="cart-left">
@@ -237,6 +237,12 @@ function Order() {
                               ${Number(item.price).toFixed(2)}
                             </p>
                             <p>Quantity: {item.quantity}</p>
+
+                            {item.size && (
+                              <p>
+                                <strong>Size:</strong> {item.size}
+                              </p>
+                            )}
                           </div>
                         </div>
 
@@ -251,12 +257,16 @@ function Order() {
                                 >
                                   {extra.icon ? `${extra.icon} ` : ""}
                                   {extra.name} (+$
+                                  {Number(extra.price).toFixed(2)})
                                   <button
                                     type="button"
                                     className="extra-remove-btn"
-                                    onClick={() => removeExtraFromCart(item, extra)}
+                                    onClick={() =>
+                                      removeExtraFromCart(item, extra)
+                                    }
+                                    aria-label={`Remove ${extra.name}`}
                                   >
-                                   x
+                                    ×
                                   </button>
                                 </span>
                               ))}
@@ -417,7 +427,8 @@ function Order() {
                 {savedOrder?.items?.map((item, index) => (
                   <div key={`${item.id}-${index}`}>
                     <p>
-                      {item.quantity} x {item.name} - $
+                      {item.quantity} x {item.name}
+                      {item.size ? ` (${item.size})` : ""} - $
                       {(
                         Number(item.price) * Number(item.quantity)
                       ).toFixed(2)}
@@ -460,6 +471,8 @@ function Order() {
           </div>
         )}
       </main>
+
+      <Footer />
     </>
   );
 }
